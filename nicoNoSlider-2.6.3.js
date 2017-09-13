@@ -281,12 +281,21 @@
 						}else{
 							var imgScr = $('#'+slidesId+i).attr('src');
 						}
-						
+						var imgInsideSrc = imgScr;
+						if(PagInnerImg != ''){
+							imgInsideSrc = PagInnerImg;
+						}
+						if(i == 1){
+							$(Pagination+' .'+PagName).append('<li class="current"><a href="#'+slidesId+i+'" style="background-image:url('+imgScr+')"><img src="'+imgInsideSrc+'"></a></li>');
+						}else{
+							$(Pagination+' .'+PagName).append('<li><a href="#'+slidesId+i+'" style="background-image:url('+imgScr+')"><img src="'+imgInsideSrc+'" ></a></li>');
+						}
+						/*
 						if(i == 1){
 							$(target+' .'+PagName).append('<li class="current" style="background-image:url('+imgScr+')"><a href="#'+slidesId+i+'"><img src="'+imgScr+'" alt="" /></a></li>');
 						}else{
 							$(target+' .'+PagName).append('<li style="background-image:url('+imgScr+')"><a href="#'+slidesId+i+'"><img src="'+imgScr+'" alt="" /></a></li>');
-						}
+						}*/
 					}else{
 						if(i == 1){
 							$(target+' .'+PagName).append('<li class="current"><a href="#'+slidesId+i+'">'+PagInner+'</a></li>');
